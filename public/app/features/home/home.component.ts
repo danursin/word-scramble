@@ -45,6 +45,7 @@
             { letter: "B" },
             { letter: "D" }
         ];
+        
         ctrl.results = [];
 
         ctrl.addLetter = function(){
