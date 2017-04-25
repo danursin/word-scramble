@@ -1,0 +1,29 @@
+{
+  "name": "word-scramble",
+  "private": true,
+  "version": "0.0.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "server.js tsc && concurrently \"tsc -w\" \"lite-server\"",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "author": "Dan Ursin",
+  "dependencies": {
+    "@types/hapi": "^13.0.38",
+    "@types/lodash": "^4.14.50",
+    "boom": "^4.2.0",
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0",
+    "joi": "^10.2.0",
+    "lodash": "4.17.4",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.1.5"
+  }
+}

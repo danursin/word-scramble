@@ -1,0 +1,78 @@
+
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p class="lead text-primary">
+                        Instructions: 
+                        <span class="text-muted">
+                            Select the letter that must appear in each word,
+                            then add the additional letters to use.
+                        </small>
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group form-group-sm w-100">
+                        <label><strong>Primary Letter</strong></label>
+                        <select class="form-control form-control-sm"
+                            ng-model="$ctrl.primaryLetter"
+                            ng-options="option for option in $ctrl.letters"></select>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Other Letters
+                                    <em ng-bind="$ctrl.otherLetterList()" class="text-muted"></span>
+                                </th>
+                                <th class="w-25">
+                                    <button type="button" ng-click="$ctrl.addLetter()" class="btn btn-sm btn-block btn-outline-success">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in $ctrl.otherLetters">
+                                <td>
+                                    <select class="form-control form-control-sm"
+                                        ng-model="item.letter"
+                                        ng-options="option for option in $ctrl.letters"></select>
+                                </td>
+                                <td>
+                                    <button type="button" ng-click="$ctrl.removeLetter($index)" class="btn btn-sm btn-block btn-outline-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li class="list-group-item">
+                    <button class="btn btn-block btn-secondary" type="button"
+                        ng-click="$ctrl.onSubmit()"
+                        ng-disabled="!$ctrl.otherLetters.length">
+                        <i class="fa fa-search"></i>
+                        Find Words!
+                    </button>
+                </li>
+                <li class="list-group-item">
+                    <ol>
+                        <li ng-repeat="result in $ctrl.results | orderBy: 'headword'">
+                            <a ng-href="http://www.dictionary.com/browse/{{result.headword}}" 
+                                ng-bind="result.headword" target="blank">
+                            </a>: 
+                            <span ng-bind="result.senses[0].definition[0]"></span>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
